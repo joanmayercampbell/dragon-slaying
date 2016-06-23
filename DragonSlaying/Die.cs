@@ -14,8 +14,10 @@ namespace DragonSlaying
         /// <summary>
         /// Constructs a 6-sided Die.
         /// </summary>
-        public Die() : this(6)
+        public Die() 
         {
+            random = new Random();
+            NumberOfSides = 6;
         }
 
         /// <summary>
@@ -25,6 +27,7 @@ namespace DragonSlaying
         public Die(int numberOfSides)
         {
             NumberOfSides = numberOfSides;
+            random = new Random();
             
         }
 
@@ -35,10 +38,7 @@ namespace DragonSlaying
         public int Roll()
         {
 
-            Random random = new Random();
-            int nextRandomNumber = random.Next(NumberOfSides) + 1;
-
-            return nextRandomNumber;
+            return random.Next(NumberOfSides + 1);
 
         }
     }
