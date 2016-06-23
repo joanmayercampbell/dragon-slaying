@@ -16,7 +16,7 @@ namespace DragonSlaying
         private int hitPoints;
 
         // TODO: Add any necessary fields
-        
+
         /// <summary>
         /// Keeps track of the number of hit points a Hero has. Cannot be less than 0
         /// (if a negative number is passed in, HitPoints will be set to 0 instead).
@@ -32,7 +32,7 @@ namespace DragonSlaying
             }
             set
             {
-                
+
                 hitPoints = value;
                 if (hitPoints < 0)
                 {
@@ -77,7 +77,14 @@ namespace DragonSlaying
         public bool IsAlive()
         {
             // TODO
-            return true;
+            if (HitPoints > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -93,7 +100,24 @@ namespace DragonSlaying
 
         public void Attack(Dragon opponent, int diceRoll)
         {
-            // TODO
+            int dragonDamage = diceRoll + Offense - opponent.Defense;
+
+            if (dragonDamage < 0)
+            {
+                dragonDamage = 0;
+            }
+
+            if (diceRoll == 1)
+            {
+                dragonDamage = 0;
+            }
+
+            if (diceRoll == 20)
+            {
+                dragonDamage = Offense * 3;
+            }
+
+            opponent.HitPoints -= dragonDamage;
         }
 
         /// <summary>
@@ -109,7 +133,24 @@ namespace DragonSlaying
 
         public void Defend(Dragon opponent, int diceRoll)
         {
-            // TODO
+            int heroDamage = opponent.Offense - diceRoll - Defense;
+
+            if (heroDamage < 0)
+            {
+                heroDamage = 0;
+            }
+
+            if (diceRoll == 1)
+            {
+                heroDamage = opponent.Offense;
+            }
+
+            if (diceRoll == 20)
+            {
+                heroDamage = 0;
+            }
+
+            HitPoints -= heroDamage;
         }
     }
 }
