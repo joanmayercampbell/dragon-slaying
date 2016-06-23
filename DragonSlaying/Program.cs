@@ -31,7 +31,10 @@ namespace DragonSlaying
         /// Runs a battle between a Hero and a Dragon. Ends when one of them has 0 HitPoints.
         /// </summary>
         /// <param name="hero">The Hero in the battle.</param>
-        /// <param name="enemy">The Dragon in the battle.</param>
+        /// <param name="enemy">The Dragon in the battle.</parameter
+        /// 
+
+
         static void Battle(Hero hero, Dragon enemy)
         {
             // TODO++: modify Battle to take a List<Dragon> of enemies, and have each of them attack every time through the loop.

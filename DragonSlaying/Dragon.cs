@@ -34,7 +34,7 @@ namespace DragonSlaying
         public bool IsAlive()
         {
             // TODO
-            throw new NotImplementedException();
+            return true;
         }
 
     }

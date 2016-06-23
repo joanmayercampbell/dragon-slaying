@@ -24,7 +24,8 @@ namespace DragonSlaying
         /// <param name="numberOfSides">The number of sides on the Die</param>
         public Die(int numberOfSides)
         {
-            // TODO
+            NumberOfSides = numberOfSides;
+            
         }
 
         /// <summary>
@@ -33,8 +34,12 @@ namespace DragonSlaying
         /// <returns>A random number between 1 and <see cref="NumberOfSides"/></returns>
         public int Roll()
         {
-            // TODO
-            throw new NotImplementedException();
+
+            Random random = new Random();
+            int nextRandomNumber = random.Next(NumberOfSides) + 1;
+
+            return nextRandomNumber;
+
         }
     }
 }
